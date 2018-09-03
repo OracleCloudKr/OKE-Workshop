@@ -3,7 +3,6 @@
 - VCN 생성하기
 - 클러스터 만들기
 - 노드풀 만들기
-- kubeconfig 설정하기
 
 ## 배경
 
@@ -314,3 +313,6 @@ Kubernetes를 설정하기 위해서는 권한을 부여해야 한다.
 
     새 노드 풀은 클러스터 페이지에 표시됩니다. 노드 풀의 작업자 노드 이름은 `Instance Name` 열에 표시됩니다.
     ![Alt text](https://monosnap.com/image/pLAbIf0nZmyBkjW1KDcFpWrOg2UEwa.png)
+
+---
+[상위 페이지](https://github.com/OracleCloudKr/OKE-Workshop/)
