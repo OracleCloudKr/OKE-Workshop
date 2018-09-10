@@ -272,7 +272,7 @@ Kubernetes를 설정하기 위해서는 권한을 부여해야 한다.
 
 1. Create Cluster 대화 상자에서 새 클러스터에 대한 세부 사항을 지정하십시오.
     - Name: Kube Cluster
-    - Version: 목록에 표시된 최신 Kubernetes 버전 (이 경우 v1.11.1)
+    - Version: 목록에 표시된 Kubernetes 중 v1.10.3 버젼 (2018년 09월 현재 v1.11.1 은 약간의 버그가 있음)
     - VCN: 클러스터를 생성 할 VCN의 이름입니다 (예 : oke-service-vcn)
     - Kubernetes Service LB Subnets: 로드밸러스 조정에 사용할 VCN의 두 서브넷 이름 (예 : LB Subnet1 및 LB Subnet2).
     - Kubernetes Service CIDR Block: 10.96.0.0/16 (기본값)
@@ -280,12 +280,11 @@ Kubernetes를 설정하기 위해서는 권한을 부여해야 한다.
     - Kubernetes Dashboard Enabled: Select 
     - Tiller (Helm) Enabled: Select 
 
-    ![Alt text](https://monosnap.com/image/x3Wnf4QO2Jc2ygvH1aLkMrRDbIfCuA.png)
+    ![Alt text](https://monosnap.com/image/hJV5YSB5oY4ALpcpFV9qA26diUiEGH.png)
     ![Alt text](https://monosnap.com/image/kgRxf1iBLcpeNpB3bkH4SDPYTN5H0F.png)
 
 1. Create를 클릭하여 새 클러스터를 만듭니다.
-
-    ![Alt text](https://monosnap.com/image/wT06d7teCjj1Bh5lBxhTHeglypzgNP.png)
+    ![Alt text](https://monosnap.com/image/DD5BkQxPcUEy0KFfGpbo3lTWje4MRP.png)
 
     새 클러스터가 클러스터 페이지에 표시됩니다. 작성된 새 클러스터의 상태는 활성입니다. 클러스터를 생성하면 클러스터의 노드 풀과 작업자 노드 (계산 인스턴스)를 정의 할 준비가되었습니다.
 
@@ -300,19 +299,19 @@ Kubernetes를 설정하기 위해서는 권한을 부여해야 한다.
 
 1. 노드 풀 추가 대화 상자에서 노드 풀에 대한 세부 사항을 지정하십시오.
     - `NAME` : KubeNodePool
-    - `VERSION` : 목록에 표시된 최신 Kubernetes 버전 (이 경우 v1.11.1).
+    - `VERSION` : 목록에 표시된 Kubernetes 중 v1.10.3 버젼 (2018년 09월 현재 v1.11.1 은 약간의 버그가 있음)
     - `IMAGE` : Oracle-Linux-7.4 (7.5도 선택가능)
-    - `SHAPE` : VM.Standard2.1 (사용 가능한 쉐입을 선택합니다.)
+    - `SHAPE` : VM.Standard2.2 (사용 가능한 쉐입을 선택합니다.)
     - `SUBNETS` : 작업 노드를 만들 VCN의 세 서브넷 이름 (예 : Public Subnet : US-ASHBURN-AD-1, Public Subnet : US-ASHBURN-AD-AD-2, Public Subnet : US-ASHBURN-AD-AD-3). 이러한 서브넷은 로드 밸런스 조정을 위해 선택한 서브넷과 달라야합니다.
     - `QUANTITY PER SUBNET` : 1
     - `PUBLIC SSH KEY` : 공란으로 두십시오 (이 자습서를 완료하려면 작업자 노드에 대한 SSH 액세스가 필요하지 않습니다)
 
-    ![Alt text](https://monosnap.com/image/dskZOpi24gckWGhf1R0cd35xNIu3nK.png)
+    ![Alt text](https://monosnap.com/image/OY025iYDYCHbmtrmA3sX3lcq00xc6y.png)
 
 1. 추가를 클릭하여 새 노드 풀을 작성하십시오.
 
     새 노드 풀은 클러스터 페이지에 표시됩니다. 노드 풀의 작업자 노드 이름은 `Instance Name` 열에 표시됩니다.
-    ![Alt text](https://monosnap.com/image/pLAbIf0nZmyBkjW1KDcFpWrOg2UEwa.png)
+    ![Alt text](https://monosnap.com/image/s9Frfy7h0CVeqYKH02TDawx7i40wfO.png)
 
 ---
 [상위 페이지](https://github.com/OracleCloudKr/OKE-Workshop/)

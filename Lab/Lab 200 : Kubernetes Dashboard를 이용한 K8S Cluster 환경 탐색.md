@@ -137,7 +137,7 @@ PEM 공개 키는 https://console.us-ashburn-1.oraclecloud.com 에있는 콘솔�
 
 # kubectl 및 Kubernetes 대시 보드에 대한 클러스터 액세스 확인
 
-1. kubectl을 이미 설치했는지 확인하십시오. 아직 수행하지 않았다면, kubectl 문서를보십시오.
+1. kubectl을 이미 설치했는지 확인하십시오. 아직 수행하지 않았다면, [kubectl 문서](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl)를보십시오.
 1. kubectl을 사용하여 생성 한 새 클러스터에 연결할 수 있는지 확인하십시오. 터미널 창에서 다음 명령을 입력하십시오.
     ~~~sh
     $ kubectl get nodes
@@ -151,13 +151,18 @@ PEM 공개 키는 https://console.us-ashburn-1.oraclecloud.com 에있는 콘솔�
     ~~~
     1. 새 브라우저 창을 열고 http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/ 로 이동하여 Kubernetes 대시 보드를 표시하십시오.
 
-    삽화 설명
+    ![Alt text](https://monosnap.com/image/EF82F9HMYNWVpgnuuX0tOtI5FM5LBy.png)
+
     1. Kubeconfig 옵션을 선택하고 kubeconfig 파일 선택을 클릭 한 다음 이전에 다운로드 한 kubeconfig 파일을 선택하십시오.
     1. 로그인을 클릭하십시오.
     1. 개요를 클릭하여 Kubernetes가 클러스터에서 실행중인 유일한 서비스인지 확인하십시오.
 
-    삽화 설명
+    ![Alt text](https://monosnap.com/image/oyAP3vyI9mzajNrJBFP47QV7h82k6U.png)
+    
     새 클러스터가 정상적으로 작동 중임을 확인했습니다. 이제 응용 프로그램을 클러스터에 배포 할 수 있습니다.
+
+
+
 
 
 ---
