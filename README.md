@@ -20,9 +20,9 @@ Oracle Blockchain Cloud 서비스가 가용한 Data Center Region를 확인하�
 
 ## Lab
 - [Lab 100 : Container Engine 환경구성](Lab/Lab%20100%20:%20Container%20Engine%20환경%20구성.md)
-- [Lab 200 : Kubernetes Dashboard를 이용한 K8S Cluster 환경 탐색](Lab/Lab%20200%20:%20Kubernetes%20Dashboard를%20이용한%20K8S%20Cluster%20환경%20탐색.md)
+- [Lab 200 : Cluster 환경 탐색](Lab/Lab%20200%20:%20Cluster%20환경%20탐색.md)
 - [Lab 300 : 간단한 웹 애플리케이션 배포](Lab/Lab%20300%20:%20간단한%20웹%20애플리케이션%20배포.md)
 - [Lab 400 : Container Registry 사용하기](Lab/Lab%20400%20:%20Container%20Registry%20사용하기.md)
 - [Lab 500 : Multi-tier 애플리케이션 배포](Lab/Lab%20500%20:%20Multi-tier%20애플리케이션%20배포.md)
-- [Lab 600 : 애플리케이션 확장(Scale) 및 업데이트 (Rolling Update)](Lab/Lab%20600%20:%20애플리케이션%20확장(Scale)%20및%20업데이트(Rolling%20Update).md)
+- [Lab 600 : 애플리케이션 확장 및 업데이트](Lab/Lab%20600%20:%20애플리케이션%20확장%20및%20업데이트.md)
 
