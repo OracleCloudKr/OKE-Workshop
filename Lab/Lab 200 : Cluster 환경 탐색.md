@@ -1,7 +1,14 @@
-![](https://ps.w.org/under-construction-page/assets/screenshot-2.png?rev=1840052)
+# Cluster 환경 탐색
+
+쿠버네티스 클러스터를 살펴보기 위하여 다음과 같은 항목들을 수행하도록 합니다.
+
+- Oracle Cloud Infrastructure CLI 설치 및 구성
+- API 서명 키 쌍의 공개 키 값을 사용자 이름의 사용자 설정
+- 클러스터 용 kubeconfig 파일 다운로드
+- kubectl 및 Kubernetes 대시 보드에 대한 클러스터 액세스 확인
 
 # Oracle Cloud Infrastructure CLI 설치 및 구성
-이 주제에서는 설치 옵션과 CLI 및 필수 소프트웨어를 설치하는 단계에 대해 설명합니다.
+쿠버네티스 클라이언트를 위한 CLI 및 필수 소프트웨어를 설치하는 단계에 대해 설명합니다.
 
 ## 설치 옵션
 CLI를 설치하는 데는 두 가지 방법이 있으며 사용자 환경에 가장 적합한 방법을 사용할 수 있습니다. 다음 옵션 중 하나를 사용하십시오.
@@ -36,7 +43,7 @@ CLI를 설치하는 데는 두 가지 방법이 있으며 사용자 환경에 �
 1. 설치 프로그램의 프롬프트에 응답하십시오.
 
 ### Bash가 설치된 컴퓨터에 CLI 설치
-1. 터미널을 엽니 다.
+1. 터미널을 엽니다.
 1. 설치 프로그램 스크립트를 실행하려면 다음 명령을 실행하십시오.
     ~~~
     $ bash -c "$ (curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
@@ -53,38 +60,38 @@ CLI를 설치하는 데는 두 가지 방법이 있으며 사용자 환경에 �
 
 ## CLI 설정하기
 
-OCI CLI에 대한 설정환경을 만들기 위해서 다음과 같이 명령한다.
+OCI CLI에 대한 설정환경을 만들기 위해서 다음과 같이 명령합니다.
 ~~~sh
 $ oci setup config
 ~~~
 ![Alt text](https://monosnap.com/image/XadFIHn2xMvM1crIRiQXDZWuYppX2V.png)
-수행을 하면 다음과 같이 질문사항이 나온다.
+수행을 하면 다음과 같이 질문사항이 나옵니다.
 - Enter a location for your config [/Users/user/.oci/config]:
-    - 설정파일이 존재할 디렉토리 - 기본값으로 엔터를 누른다.
+    - 설정파일이 존재할 디렉토리 - 기본값으로 엔터를 입력합니다.
 - Enter a user OCID: 
-    - user OCID 값은 User Settings 화면의 중간에 User Information 항목에 있다. Copy 버튼을 누르면 복사된다.
+    - user OCID 값은 User Settings 화면의 중간에 User Information 항목에 있습니다. Copy 버튼을 누르면 복사됩니다.
     ![Alt text](https://monosnap.com/image/a2wldUsviprPPy3uTO43ikShG80LCM.png)
     ![Alt text](https://monosnap.com/image/nHcp3sPnoJ4OJiQWMFNSLOooshGjXz.png)
 - Enter a tenancy OCID: 
-    - tenancy OCID 값은 콘솔 화면의 하위에 있다. 
+    - tenancy OCID 값은 콘솔 화면의 하위에 있습니다. 
     ![Alt text](https://monosnap.com/image/feihVfMby4CoQmqMCXiz0GNPF7gSsm.png)
 - Enter a region (e.g. eu-frankfurt-1, uk-london-1, us-ashburn-1, us-phoenix-1): 
-    - region은 상단 우측에 존재한다.
+    - region은 상단 우측에 존재합니다.
     ![Alt text](https://monosnap.com/image/qcV8dVveQKnHLX7BMIkFfP2c4uiEDE.png)
 - Do you want to generate a new RSA key pair? (If you decline you will be asked to supply the path to an existing key.) [Y/n]:
-    - 키페어를 생성한다 - 기본값으로 엔터를 누른다.
+    - 키페어를 생성합니다 - 기본값으로 엔터를 입력합니다.
 - Enter a directory for your keys to be created [/Users/user/.oci]:
-    - 키페어가 위치할 디렉토리를 지정한다 - 기본값으로 엔터를 누른다.
+    - 키페어가 위치할 디렉토리를 지정합니다 - 기본값으로 엔터를 입력합니다.
 - Enter a name for your key [oci_api_key]:
-    - 개인키명 - 기본값으로 엔터를 누른다.
+    - 개인키명 - 기본값으로 엔터를 입력합니다.
 - File /Users/user/.oci/oci_api_key_public.pem already exists, do you want to overwrite? [y/N]: y
-    - 기존에 존재하고 있으면 새로 생성해서 갱신할 여부를 묻는다 - 기존에 있다면 갱신을 위해서 y를 입력하고 엔터를 누른다.
+    - 기존에 존재하고 있으면 새로 생성해서 갱신할 여부를 묻습니다 - 기존에 있다면 갱신을 위해서 y를 입력하고 엔터를 입력합니다.
 - Public key written to: /Users/user/.oci/oci_api_key_public.pem
-    - 공개키명 - 기본값으로 엔터를 누른다.
+    - 공개키명 - 기본값으로 엔터를 입력합니다.
 - Enter a passphrase for your private key (empty for no passphrase):
-    - 패스워드를 입력할 지 여부 - 패스워드 필요없이 엔터를 누른다.
+    - 패스워드를 입력할 지 여부 - 패스워드 필요없이 엔터를 입력합니다.
 - File /Users/user/.oci/oci_api_key.pem already exists, do you want to overwrite? [y/N]: y
-    - 기존에 존재하고 있으면 새로 생성해서 갱신할 여부를 묻는다 - 기존에 있다면 갱신을 위해서 y를 입력하고 엔터를 누른다.
+    - 기존에 존재하고 있으면 새로 생성해서 갱신할 여부를 묻습니다 - 기존에 있다면 갱신을 위해서 y를 입력하고 엔터를 입력합니다.
 
 
 # API 서명 키 쌍의 공개 키 값을 사용자 이름의 사용자 설정
