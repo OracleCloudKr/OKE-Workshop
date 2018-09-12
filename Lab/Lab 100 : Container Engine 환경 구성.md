@@ -1,8 +1,12 @@
-# 시작전에..
-이 튜토리얼은 20분 정도 이루어 집니다.
-- VCN 생성하기
-- 클러스터 만들기
-- 노드풀 만들기
+# Container Engine 환경구성
+
+오라클의 쿠버네티스 클러스터 환경인 Container Engine for Kubernetes. 줄임말로 OKE에 대해서 알아보도록 합니다.
+
+- OCI (Oracle Cloud Infrastructure) 시작하기
+- 리소스 제어권한 부여하기
+- VCN (Virtual Cluster Network) 생성하기
+- 클러스터 세부사항 정의하기
+- 노드풀 세부사항 정의하기
 
 ## 배경
 
