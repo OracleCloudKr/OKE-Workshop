@@ -2,17 +2,21 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
+  labels:
+    app: oke-sample
 spec:
   ports:
   - port: 3306
   selector:
     app: mysql
-  clusterIP: None
+#  clusterIP: None
 ---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: mysql
+  labels:
+    app: oke-sample
 spec:
   selector:
     matchLabels:
@@ -25,7 +29,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql
+      - image: mysql:5.6
         name: mysql
         env:
           # Use secret in real usage
@@ -41,4 +45,3 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-

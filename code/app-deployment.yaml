@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: oke-sample
+  labels:
+    app: oke-sample
+spec:
+  ports:
+  - port: 8080
+  selector:
+    app: oke-sample
+    tier: frontend
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oke-sample
+  labels:
+    app: oke-sample
+spec:
+  selector:
+    matchLabels:
+      app: oke-sample
+      tier: frontend
+  strategy:
+    type: Recreate
+#  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oke-sample
+        tier: frontend
+    spec:
+      containers:
+      - image: iad.ocir.io/gse00014941/project01/oke-sample-app
+        name: oke-sample
+        env:
+        - name: MYSQL_SERVICE_HOST
+          value: "mysql"
+        - name: MYSQL_SERVICE_USER
+          value: "test"
+        - name: MYSQL_SERVICE_PASSWORD
+          value: "Welcome1"
+        - name: MYSQL_SERVICE_DATABASE
+          value: "sample"
+        ports:
+        - containerPort: 8080
+          name: oke-sample
+      imagePullSecrets:
+      - name: ocirsecret

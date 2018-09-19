@@ -1,4 +1,4 @@
-# Container Engine 환경구성
+# Lab-100 : Container Engine 환경구성
 
 오라클의 쿠버네티스 클러스터 환경인 Container Engine for Kubernetes. 줄임말로 OKE에 대해서 알아보도록 합니다.
 

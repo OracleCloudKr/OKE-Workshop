@@ -1,4 +1,4 @@
-# Container Registry 사용하기
+# Lab-400 : Container Registry 사용하기
 
 Container Registry는 Docker image가 저장되는 장소입니다.
 Oracle Container Registry를 사용하기 위해서 password 에 해당하는 토큰이 필요하며 토큰 생성 후에 docker image를 저장소에 저장해 봅니다.
