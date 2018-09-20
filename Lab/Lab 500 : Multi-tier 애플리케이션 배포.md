@@ -462,6 +462,7 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
     ![Alt text](https://monosnap.com/image/KhbuiFqw22Tb67hJEwPfQjKr0r6ltU.png)
 
 1. 다음과 같이 입력합니다.
+
     ~~~
     docker login -u <태넌트>/<로그인아이디> -p <토큰값> iad.ocir.io
     docker build -t iad.ocir.io/<태넌트>/<저장소명>/oke-sample-app .
@@ -554,6 +555,7 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
     ~~~
 
 1. 도커 이미지 확인
+
     ~~~
     $ docker images
     ~~~
@@ -591,6 +593,7 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
 # Step-6: 애플리케이션 배포하기
 
 1. secret 만들기
+
     애플리케이션은 멀티로 존재할 수 있기 때문에 쿠버네티스가 docker registry 에서 해당 이미지를 가져올 수 있어야 합니다. 그래서 docker registry에 접근할 수 있는 secret을 먼저 만들도록 합니다.
     ~~~
     $ kubectl create secret docker-registry ocirsecret --docker-server=iad.ocir.io --docker-username='gse00014941/jonggyou.kim' --docker-password='토큰' --docker-email='shiftyou@gmail.com'
@@ -608,6 +611,7 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
     ~~~
 
 2. 애플리케이션 배포 yaml 만들기
+
     다음과 같이 배포용 yaml 파일을 만듭니다.
     `app-deployment.yaml`
     ~~~
@@ -687,6 +691,7 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
     - mysql 과 oke-sample 은 pod 에서 1개씩 Running 중입니다.
 
 ## Step-7: 애플리케이션 테스트하기
+
 서비스로 접근하기 위해서는 service 의 EXTERNAL-IP로 접근을 해야 합니다. 다음의 명령어로 알 수 있습니다.
 ~~~
 $ kubectl get service
