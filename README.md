@@ -14,9 +14,6 @@ Oracle Blockchain Cloud 서비스가 가용한 Data Center Region를 확인하�
 * [Trial 계정 신청하기](http://www.oracloud.kr/post/oracle_cloud_trial_universal/)
 * [가용한 데이터 선터 Region 확인하기](https://cloud.oracle.com/en_US/data-regions)
 
-# 소개
-- [Intro 01 : Docker and Kubernetes 101](Intro/Intro%2001%20:%20Docker%20and%20Kubernetes%20101.md)
-- [Intro 02 : Oracle Container Engine and Registry 소개](Intro/Intro%2002%20:%20Oracle%20Container%20Engine%20and%20Registry%20소개.md)
 
 # Lab
 - [Lab 100 : Container Engine 환경구성](Lab/Lab%20100%20:%20Container%20Engine%20환경%20구성.md)
