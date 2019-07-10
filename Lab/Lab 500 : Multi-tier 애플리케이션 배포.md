@@ -278,7 +278,7 @@ mysql>
 
 접속된 mysql에서 다음의 명령을 수행합니다.
 ~~~
-CREATE USER 'test'@'%' IDENTIFIED WITH mysql_native_password BY 'Welcome1';
+CREATE USER 'test'@'%' IDENTIFIED BY 'Welcome1';
 
 GRANT USAGE ON *.* TO 'test'@'%';
 
