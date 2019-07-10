@@ -42,40 +42,40 @@
     apiVersion: v1
     kind: Service
     metadata:
-    name: mysql
-    labels:
+      name: mysql
+      labels:
         app: oke-sample
     spec:
-    ports:
-    - port: 3306
-    selector:
+      ports:
+      - port: 3306
+      selector:
         app: mysql
     #  clusterIP: None
     ---
     apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
     kind: Deployment
     metadata:
-    name: mysql
-    labels:
+      name: mysql
+      labels:
         app: oke-sample
     spec:
-    selector:
+      selector:
         matchLabels:
-        app: mysql
-    strategy:
+          app: mysql
+      strategy:
         type: Recreate
-    template:
+      template:
         metadata:
-        labels:
+          labels:
             app: mysql
         spec:
-        containers:
-        - image: mysql:5.6
+          containers:
+          - image: mysql:5.6
             name: mysql
             env:
             # Use secret in real usage
             - name: MYSQL_ROOT_PASSWORD
-            value: password
+              value: password
             ports:
             - containerPort: 3306
             name: mysql
@@ -85,7 +85,7 @@
         volumes:
         - name: mysql-persistent-storage
             persistentVolumeClaim:
-            claimName: mysql-pv-claim
+              claimName: mysql-pv-claim
     ~~~
 
     - `mysql` 이라는 도커 이미지를 같은 이름의 `mysql` 이라는 이름으로 배포를 합니다. 
@@ -104,30 +104,30 @@
     kind: PersistentVolume
     apiVersion: v1
     metadata:
-    name: mysql-pv-volume
-    labels:
+      name: mysql-pv-volume
+      labels:
         app: oke-sample
         type: local
     spec:
-    storageClassName: manual
-    capacity:
+      storageClassName: manual
+      capacity:
         storage: 2Gi
-    accessModes:
+      accessModes:
         - ReadWriteOnce
-    hostPath:
+      hostPath:
         path: "/mnt/data"
     ---
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-    name: mysql-pv-claim
-    labels:
+      name: mysql-pv-claim
+      labels:
         app: oke-sample
     spec:
-    storageClassName: manual
-    accessModes:
+      storageClassName: manual
+      accessModes:
         - ReadWriteOnce
-    resources:
+      resources:
         requests:
         storage: 2Gi
     ~~~
@@ -621,50 +621,49 @@ Oracle Developer Cloud Service 를 이용하여 소스를 수정하고 OKE에서
     apiVersion: v1
     kind: Service
     metadata:
-    name: oke-sample
-    labels:
+      name: oke-sample
+      labels:
         app: oke-sample
     spec:
-    ports:
-    - port: 8080
-    selector:
+      ports:
+      - port: 8080
+      selector:
         app: oke-sample
         tier: frontend
-    type: LoadBalancer
+      type: LoadBalancer
 
     ---
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-    name: oke-sample
-    labels:
+      name: oke-sample
+      labels:
         app: oke-sample
     spec:
-    selector:
+      selector:
         matchLabels:
-        app: oke-sample
-        tier: frontend
-    strategy:
+          app: oke-sample
+          tier: frontend
+      strategy:
         type: Recreate
-    #  replicas: 1
-    template:
+      template:
         metadata:
-        labels:
+          labels:
             app: oke-sample
             tier: frontend
         spec:
-        containers:
-        - image: iad.ocir.io/gse00014941/project01/oke-sample-app
+          containers:
+          - image: iad.ocir.io/gse00014941/project01/oke-sample-app
             name: oke-sample
             env:
             - name: MYSQL_SERVICE_HOST
-            value: "mysql"
+              value: "mysql"
             - name: MYSQL_SERVICE_USER
-            value: "test"
+              value: "test"
             - name: MYSQL_SERVICE_PASSWORD
-            value: "Welcome1"
+              value: "Welcome1"
             - name: MYSQL_SERVICE_DATABASE
-            value: "sample"
+              value: "sample"
             ports:
             - containerPort: 8080
             name: oke-sample
